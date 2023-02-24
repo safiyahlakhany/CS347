@@ -23,6 +23,18 @@
         "command": "cs347.prevBookmark",
         "title": "Previous Bookmark"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "cs347.nextBookmark",
+        "key": "Cmd+Shift+0",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cs347.prevBookmark",
+        "key": "Cmd+Shift+9",
+        "when": "editorTextFocus"
+      }
     ]
   },
   "scripts": {
