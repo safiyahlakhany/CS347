@@ -20,6 +20,10 @@ function activate(context) {
 			// Find nearest next bookmark
 			let text = editor.document.getText();
 			const allMatches = [...text.matchAll(/# !@/g)];
+			if (allMatches.length == 0) {
+				vscode.window.showInformationMessage("You have no bookmarks.");
+				return;
+			}
 			const match = allMatches.find((match) => match.index > cur_position);
 
 			// If match == null, there is no next bookmark; loop around to first
@@ -46,6 +50,10 @@ function activate(context) {
 			// Find nearest previous bookmark
 			let text = editor.document.getText();
 			const allMatches = [...text.matchAll(/# !@/g)].reverse();
+			if (allMatches.length == 0) {
+				vscode.window.showInformationMessage("You have no bookmarks.");
+				return;
+			}
 			const match = allMatches.find((match) => match.index < cur_position);
 
 			// If match == null, there is no next bookmark; loop around to last
