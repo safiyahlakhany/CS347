@@ -16,8 +16,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "cs347.helloWorld",
-        "title": "Hello World"
+        "command": "cs347.nextBookmark",
+        "title": "Next Bookmark"
+      },
+      {
+        "command": "cs347.prevBookmark",
+        "title": "Previous Bookmark"
       }
     ]
   },
