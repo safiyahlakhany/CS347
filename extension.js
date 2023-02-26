@@ -24,14 +24,14 @@ function activate(context) {
 				vscode.window.showInformationMessage("You have no bookmarks.");
 				return;
 			}
-			const match = allMatches.find((match) => match.index > cur_position);
+			const match = allMatches.find((match) => match.index > cur_position - 4); // 4 == length of bookmark indicator (# !@)
 
 			// If match == null, there is no next bookmark; loop around to first
 			var index = (match != null) ? match.index : allMatches[0].index;
 			// console.log(index);
 
 			// Move cursor to that line
-			var newPosition = editor.document.positionAt(index);
+			var newPosition = editor.document.positionAt(index + 4); // 4 == length of bookmark indicator (# !@)
 			var newSelection = new vscode.Selection(newPosition, newPosition);
 			editor.selection = newSelection;
 		}
@@ -54,14 +54,14 @@ function activate(context) {
 				vscode.window.showInformationMessage("You have no bookmarks.");
 				return;
 			}
-			const match = allMatches.find((match) => match.index < cur_position);
+			const match = allMatches.find((match) => match.index < cur_position - 4); // 4 == length of bookmark indicator (# !@)
 
 			// If match == null, there is no next bookmark; loop around to last
 			var index = (match != null) ? match.index : allMatches[0].index;
 			// console.log(index);
 
 			// Move cursor to that line
-			var newPosition = editor.document.positionAt(index);
+			var newPosition = editor.document.positionAt(index + 4); // 4 == length of bookmark indicator (# !@)
 			var newSelection = new vscode.Selection(newPosition, newPosition);
 			editor.selection = newSelection;
 		}
