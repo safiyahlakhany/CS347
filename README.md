@@ -1,3 +1,6 @@
+# Note
+might have to npm install sound-play for this to work
+
 # cs347 README
 
 This is the README for your extension "cs347". After writing up a brief description, we recommend including the following sections.

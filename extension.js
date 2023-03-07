@@ -29,6 +29,10 @@ function activate(context) {
 			const match = allMatches.find((match) => match.index > cur_position - 4); // 4 == length of bookmark indicator (# !@)
 
 			// If match == null, there is no next bookmark; loop around to first
+			if(match == null)
+			{
+				playLoopSound();
+			}
 			var index = (match != null) ? match.index : allMatches[0].index;
 			// console.log(index);
 
@@ -66,6 +70,20 @@ function activate(context) {
 
 	}
 
+	async function playLoopSound() {
+		const path = require("path");
+		const filePath = path.join(__dirname, "loopAround.mp3");
+		try {
+			await sound.play(filePath);
+			console.log("done");
+		  } catch (error) {
+			console.error(error);
+		  }
+
+	}
+
+
+
 	// Command to go to previous bookmark
 	let prevBookmarkCommand = vscode.commands.registerCommand('cs347.prevBookmark', function () {
 		const editor = vscode.window.activeTextEditor;
@@ -85,6 +103,10 @@ function activate(context) {
 			const match = allMatches.find((match) => match.index < cur_position - 4); // 4 == length of bookmark indicator (# !@)
 
 			// If match == null, there is no next bookmark; loop around to last
+			if(match == null)
+			{
+				playLoopSound();
+			}
 			var index = (match != null) ? match.index : allMatches[0].index;
 			// console.log(index);
 
