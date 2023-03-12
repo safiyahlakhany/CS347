@@ -27,12 +27,12 @@
     "keybindings": [
       {
         "command": "cs347.nextBookmark",
-        "key": "Ctrl+Shift+0",
+        "key": "Ctrl+Shift+/",
         "when": "editorTextFocus"
       },
       {
         "command": "cs347.prevBookmark",
-        "key": "Ctrl+Shift+9",
+        "key": "Ctrl+Shift+.",
         "when": "editorTextFocus"
       }
     ]
